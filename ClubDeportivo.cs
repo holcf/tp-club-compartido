@@ -90,7 +90,7 @@ namespace Proyecto_Integrador_Club
         //guarda al nuevo socio/nosocio en la base datos
         //cambia el nombre del procedure según se trato de un socio o de un nosocio
         //ya que se guarda en tablas distintas
-        public static string RegistrarUsuarioClub(E_UsuarioClub socio, TipoUsuarioClub tipoUsuario)
+        public static string RegistrarUsuarioClub(E_UsuarioClub usuarioClub, TipoUsuarioClub tipoUsuario)
         {
             string? salida;
             string? nombreProcedure = "";
@@ -112,11 +112,11 @@ namespace Proyecto_Integrador_Club
                 MySqlCommand comando = new MySqlCommand(nombreProcedure, sqlCon);
                 comando.CommandType = CommandType.StoredProcedure;
 
-                comando.Parameters.Add("inNombre", MySqlDbType.VarChar).Value = socio.Nombre;
-                comando.Parameters.Add("inDNI", MySqlDbType.Int32).Value = socio.DNI;
-                comando.Parameters.Add("inCorreo", MySqlDbType.VarChar).Value = socio.Correo;
-                comando.Parameters.Add("inFechaInscripcion", MySqlDbType.Date).Value = socio.FechaInscripcion;
-                comando.Parameters.Add("inAptoFisico", MySqlDbType.Bit).Value = socio.AptoFisico;
+                comando.Parameters.Add("inNombre", MySqlDbType.VarChar).Value = usuarioClub.Nombre;
+                comando.Parameters.Add("inDNI", MySqlDbType.Int32).Value = usuarioClub.DNI;
+                comando.Parameters.Add("inCorreo", MySqlDbType.VarChar).Value = usuarioClub.Correo;
+                comando.Parameters.Add("inFechaInscripcion", MySqlDbType.Date).Value = usuarioClub.FechaInscripcion;
+                comando.Parameters.Add("inAptoFisico", MySqlDbType.Bit).Value = usuarioClub.AptoFisico;
 
                 MySqlParameter ParCodigo = new MySqlParameter();
                 ParCodigo.ParameterName = "rta";

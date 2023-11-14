@@ -29,10 +29,10 @@ namespace Proyecto_Integrador_Club
     internal class ClubDeportivo
     {
         // query para traer la lista de socios con cuotas vencidas
-        public static readonly string queryListadoVencidos = "select Nsocio, Nombre, DNI, IFNULL(MCuota, '') from (select socio.Nsocio, socio.Nombre, socio.DNI, max(cuota.Vencimiento) as MCuota from socio join cuota on socio.NSocio = cuota.NSocio  group by socio.Nsocio) t1 WHERE MCuota <= NOW();";
+        public static readonly string queryListadoVencidos = "select Nsocio, Nombre, DNI, IFNULL(MCuota, '') from (select socio.Nsocio, socio.Nombre, socio.DNI, max(cuotaSocio.Vencimiento) as MCuota from socio join cuotaSocio on socio.NSocio = cuotaSocio.NSocio  group by socio.Nsocio) t1 WHERE MCuota <= NOW();";
 
         // query para traer la lista de todos los socios
-        public static readonly string queryListadoTodos = "select Nsocio, Nombre, DNI, IFNULL(MCuota, '') from (select socio.Nsocio, socio.Nombre, socio.DNI, max(cuota.Vencimiento) as MCuota from socio left join cuota on socio.NSocio = cuota.NSocio group by socio.Nsocio) t1;";
+        public static readonly string queryListadoTodos = "select Nsocio, Nombre, DNI, IFNULL(MCuota, '') from (select socio.Nsocio, socio.Nombre, socio.DNI, max(cuotaSocio.Vencimiento) as MCuota from socio left join cuotaSocio on socio.NSocio = cuotaSocio.NSocio group by socio.Nsocio) t1;";
 
         //guarda la cuota en la base datos
         //cambia el nombre del procedure según se trato de un socio o de un nosocio

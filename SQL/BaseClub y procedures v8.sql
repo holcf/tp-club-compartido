@@ -37,7 +37,10 @@ create table socio(
 constraint pk_socio primary key(NSocio)
 );
 
-insert into socio values (1, "Fede H", 11222333, "fede@unmail.com", 20231024, true);
+insert into socio values (1, "Socio 1", 11111111, "s1@unmail.com", 20231024, true);
+insert into socio values (2, "Socio 2", 22222222, "s2@unmail.com", 20231024, true);
+insert into socio values (3, "Socio 3", 33333333, "s3@unmail.com", 20231024, true);
+
 
 create table nosocio(
 	NSocio int,
@@ -49,8 +52,9 @@ create table nosocio(
 constraint pk_nosocio primary key(NSocio)
 );
 
-insert into nosocio values (1, "xxxxxx yyyyy", 4444444, "xxxx@unmail.com", 20231024, true);
-
+insert into nosocio values (1, "No Socio 1", 11234567, "ns1@unmail.com", 20231024, true);
+insert into nosocio values (2, "No Socio 2", 22345678, "ns2@unmail.com", 20231024, true);
+insert into nosocio values (3, "No Socio 3", 33456789, "ns3@unmail.com", 20231024, true);
 
 
 
@@ -68,7 +72,11 @@ primary key(IdCuota),
 foreign key(NSocio) REFERENCES socio(NSocio)
 ); 
 
-insert into cuotaSocio values(0,1,300, 20231022, 1, 20231025, 20231125);
+insert into cuotaSocio values(0,1,3000, 20231013, 1, 20231013, 20231113);
+insert into cuotaSocio values(0,2,3000, 20231013, 1, 20231013, 20231113);
+insert into cuotaSocio values(0,2,3000, 20231114, 1, 20231114, 20231214);
+
+
 
 drop table if exists cuotaDiaria;
 

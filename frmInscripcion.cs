@@ -85,6 +85,8 @@ namespace Proyecto_Integrador_Club
                         nroNuevoUsuarioClub = respuesta;
                         btnCarnet.Enabled = true;
                         MessageBox.Show("Inscripción exitosa del " + tipoUsuario.ToString() + " Nro " + respuesta, "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        desactivarCampos();
+
                     }
                 }
             }
@@ -123,7 +125,6 @@ namespace Proyecto_Integrador_Club
             {
                 InscribirUsuarioClub(TipoUsuarioClub.NoSocio);
             }
-            desactivarCampos();
         }
 
         private void btnNuevaInscripcion_Click(object sender, EventArgs e)

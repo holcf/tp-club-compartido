@@ -319,12 +319,13 @@ namespace Proyecto_Integrador_Club
                 {
                     guardarCuota(TipoUsuarioClub.NoSocio);
                 }
+                btnCobrar.Enabled = false;
+                desactivarCampos();
+                rbtNoSocio.Enabled = false;
+                rbtSocio.Enabled = false;
+                cbxNSocio.Enabled = false;
             }
-            btnCobrar.Enabled = false;
-            desactivarCampos();
-            rbtNoSocio.Enabled = false;
-            rbtSocio.Enabled=false;
-            cbxNSocio.Enabled = false;
+           
         }
 
         private void cbxNSocio_SelectedIndexChanged(object sender, EventArgs e)
@@ -409,12 +410,14 @@ namespace Proyecto_Integrador_Club
         {
             cbxNSocio.SelectedIndex = -1;
             btnComprobante.Enabled = false;
-            btnCobrar.Enabled = true;
-            activarCampos();
             rbtNoSocio.Enabled = true;
             rbtSocio.Enabled = true;
             cbxNSocio.Enabled = true;
-            
+            txtMonto.Text = "";
+
+            desactivarCampos();
+            cargaCbxSocios();
+
         }
 
         private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
